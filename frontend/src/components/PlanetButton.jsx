@@ -1,12 +1,12 @@
 import React from 'react'
 import './PlanetButton.scss'
 
-const Button = ({ buttonName }) => {
+const PlanetButton = ({ buttonName,onClick }) => {
   return (
-    <button className='button'>
+    <button className='button' onClick={onClick}>
       {buttonName}
     </button>
   )
 }
 
-export default Button
+export default PlanetButton

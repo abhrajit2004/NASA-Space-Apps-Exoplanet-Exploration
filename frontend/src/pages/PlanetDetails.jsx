@@ -1,6 +1,6 @@
 import React from 'react'
 import './PlanetDetails.scss'
-import Button from '../../component/Button/Button.jsx'
+import PlanetButton from '../components/PlanetButton.jsx'
 
 function PlanetDetails() {
   return (
@@ -13,7 +13,7 @@ function PlanetDetails() {
         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit incidunt suscipit, dolorem ullam dolor nam officia itaque nulla doloribus illo.</p>
         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit incidunt suscipit, dolorem ullam dolor nam officia itaque nulla doloribus illo.</p>
       </div>
-      <Button buttonName="Back" />
+      <PlanetButton buttonName="Back" />
     </div>
   )
 }
