@@ -101,13 +101,23 @@ const Quiz = () => {
 
     if (multiplePlanets.length > 0) {
         return (
-            <div className='bg-black min-h-screen flex flex-col items-center justify-center text-white'>
+            <>
+               <div className="video-wrapper">
+        <video
+          src="/quizbg.mp4"
+          autoPlay
+          muted
+          loop
+        ></video>
+        </div>
+            <div className='min-h-screen flex flex-col items-center justify-center text-white'>
                 <h1 className='text-4xl'>Typed Wrong?</h1>
                 <Link to="/quiz" className='p-4 mb-10'>
-                    <button button className='bg-slate-600 hover:bg-slate-700 text-white text-2xl font-bold py-4 px-6 rounded'>
+                    <button className='bg-slate-600 hover:bg-slate-700 text-white text-2xl font-bold py-4 px-6 rounded'>
                         Go back to Quiz Selection Page
                     </button>
                 </Link>
+                <div className='bg-slate-900 p-10 h-56 border border-white rounded-lg'>
                 <h1 className='text-3xl mb-4'>Multiple planets found, please select one:</h1>
 
                 <Pagination
@@ -119,6 +129,7 @@ const Quiz = () => {
                     searchQuery={null}
                     itemsPerPage={itemsPerPage}
                 />
+                </div>
 
                 
                 {isLoading ? <div className='text-xl'>Loading Planet Entries...</div> :
@@ -146,6 +157,7 @@ const Quiz = () => {
                     itemsPerPage={itemsPerPage}
                 />
             </div>
+            </>
         );
     }
 
@@ -184,16 +196,35 @@ const Quiz = () => {
     ];
 
     if (currentQuestion >= questions.length) {
-        return <div className='bg-black min-h-screen flex items-center justify-center text-white'>Your score: {score}/{questions.length}</div>;
+        return <>
+           <div className="video-wrapper">
+        <video
+          src="/quizbg.mp4"
+          autoPlay
+          muted
+          loop
+        ></video>
+        </div>
+        <div className='flex flex-col items-center justify-center text-white bg-slate-900 my-60 w-[30vw] h-[30vh] p-10 mx-auto border border-white rounded-lg font-krona'>Your score: {score}/{questions.length}</div>
+        </>;
     }
 
     const question = questions[currentQuestion];
 
     return (
-        <div className='bg-black min-h-screen flex flex-col items-center justify-center text-white'>
-            <h1 className='text-4xl mb-6'>{quizData.title} Quiz</h1>
-            <div className='w-full max-w-md'>
-                <h2 className='text-2xl mb-4'>{question.questionText}</h2>
+        <>
+           <div className="video-wrapper">
+        <video
+          src="/quizbg.mp4"
+          autoPlay
+          muted
+          loop
+        ></video>
+        </div>
+        <div className='flex flex-col items-center justify-center text-white bg-slate-900 my-36 w-[30vw] p-10 mx-auto border border-white rounded-lg'>
+            <h1 className='text-4xl mb-6 font-krona typewriter-text'>{quizData.title} Quiz</h1>
+            <div className='w-full max-w-md '>
+                <h2 className='text-base mb-4 font-krona'>{question.questionText}</h2>
                 <div className='space-y-2'>
                     {question.options.map((option, index) => (
                         <button 
@@ -207,7 +238,9 @@ const Quiz = () => {
                 </div>
             </div>
         </div>
+        </>
     );
 };
 
 export default Quiz;
+
