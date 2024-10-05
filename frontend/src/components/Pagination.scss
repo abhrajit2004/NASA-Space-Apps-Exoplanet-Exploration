@@ -1,0 +1,18 @@
+.page-numbers {
+    button {
+        &:hover {
+            background-color: #dddcdc;
+            color: #000;
+        }
+        &:active {
+            background-color: #cacaca;  
+        }
+    }
+
+    .current-page {
+        &:hover {
+            background-color: #005bb505;
+            color: #fff;
+        }
+    }
+}

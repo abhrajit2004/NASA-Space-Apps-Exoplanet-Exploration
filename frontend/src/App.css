@@ -1,0 +1,19 @@
+.home-bg {
+    background-image: url("/homebg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+}
+
+.font-jockey {
+    font-family: Jockey One, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+    'Liberation Sans', sans-serif;
+}
+.font-krona {
+    font-family: Krona One, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+    'Liberation Sans', sans-serif;
+}
+.font-averia {
+    font-family: Averia Gruesa Libre, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+    'Liberation Sans', sans-serif;
+}

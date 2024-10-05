@@ -1,0 +1,17 @@
+nav {
+    .navbar-items {
+        a {
+            transition: all .15s;
+
+            &:hover {
+                color: #2ecc71;
+                transform: scale(1.15);
+            }
+        
+            &:active {
+                color: #1ca254;
+                transform: scale(0.95);
+            }
+        }
+    }
+}
