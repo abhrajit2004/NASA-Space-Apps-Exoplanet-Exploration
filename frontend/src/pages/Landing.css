@@ -1,0 +1,51 @@
+/* Background Video Styles */
+.video-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+  
+.video-wrapper video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+  
+/* Typewriter Text Styles */
+.typewriter-text {
+    font-family: 'Krona One', sans-serif; /* Keep the same font */
+    color: #fff;
+    white-space: nowrap; /* Prevent text from wrapping */
+    overflow: hidden; /* Hide overflow text */
+    border-right: 4px solid rgba(255, 255, 255, 0.75); /* Create the blinking cursor */
+    width: fit-content;
+    animation: caret 0.75s step-end infinite; /* Blinking cursor animation */
+    text-shadow: 0 0 5px #fff, 0 0 10px #00ccff, 0 0 15px #00ccff; /* Glowing effect */
+}
+
+/* Blinking Cursor Animation */
+@keyframes caret {
+    from, to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: rgba(255, 255, 255, 0.75);
+    }
+}
+
+.gif-container {
+    display: flex;
+    justify-content: center; /* Center the GIF horizontally */
+    align-items: center; /* Center the GIF vertically */
+    margin-top: 20px; /* Space between text and GIF */
+}
+
+.gif-container img {
+    max-width: 100%; /* Make the GIF responsive */
+    height: auto; /* Maintain aspect ratio */
+}
+
