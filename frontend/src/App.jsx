@@ -11,8 +11,6 @@ import Landing from './pages/Landing.jsx'
 import PlanetIntermediate from './pages/PlanetIntermediate.jsx'
 import PlanetDetails from './pages/PlanetDetails.jsx'
 import Favourites from './pages/Favourites.jsx'
-import { ToastContainer } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
 import { useStore } from './store/store.js'
 
 function App() {
