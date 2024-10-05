@@ -15,7 +15,7 @@ const Card = ({planetName, planetInfo}) => {
       <div className="info">
         <li>{planetInfo}</li>
       </div>
-      <PlanetButton buttonName='Know More-->'onClick={handleKnowMoreClick}/>
+      <PlanetButton buttonName='Know More-->' onClick={handleKnowMoreClick}/>
     </div>
   )
 }

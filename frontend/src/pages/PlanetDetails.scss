@@ -15,7 +15,7 @@
   padding: 2rem;
   // width: -webkit-fill-available;
   // overflow: hidden;
-  overflow: scroll;
+  overflow: hidden;
 
   .description {
     background: rgba(255, 255, 255, 0.1);
@@ -63,6 +63,7 @@
 
     p {
       opacity: 0;
+      font-size: 16px;
       transform: translateY(20px);
       animation: fadeInText 1s ease-in-out forwards;
       animation-delay: calc(3s + var(--delay));
@@ -83,7 +84,21 @@
       &:nth-child(5) {
         --delay: 1.5s;
       }
-
+      &:nth-child(6) {
+        --delay: 1.5s;
+      }
+      &:nth-child(7) {
+        --delay: 1.5s;
+      }
+      &:nth-child(8) {
+        --delay: 1.5s;
+      }
+      &:nth-child(9) {
+        --delay: 1.5s;
+      }
+      &:nth-child(10) {
+        --delay: 1.5s;
+      }
       &:last-child {
         --delay:2s;
       }

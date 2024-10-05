@@ -1,7 +1,7 @@
 import React from 'react'
 import './PlanetButton.scss'
 
-const PlanetButton = ({ buttonName,onClick }) => {
+const PlanetButton = ({ buttonName, onClick }) => {
   return (
     <button className='button' onClick={onClick}>
       {buttonName}

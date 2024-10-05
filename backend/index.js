@@ -6,6 +6,7 @@ import cookieParser from "cookie-parser";
 import authRoutes from "./routes/auth.route.js";
 import planetsRoutes from "./routes/planets.route.js";
 import quizRoutes from "./routes/quiz.route.js";
+import favouritesRoutes from "./routes/favourites.route.js";
 
 import { ENV_VARS } from "./config/envVar.js";
 import { connectDB } from "./config/db.js";
@@ -37,6 +38,8 @@ app.use("/api/planets", planetsRoutes); // hey express, use the planetsRoutes fo
 
 app.use("/api/quiz", quizRoutes); // hey express, use the quizRoutes for any requests that start with /quiz
 // console.log(process.env.MONGODB_URI);
+
+app.use("/api/favourites", favouritesRoutes); // hey express, use the planetsRoutes for any requests that start with /api/planets
 
 // to serve the frontend in production
 // so with this we can access the react app using the port of the backend

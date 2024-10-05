@@ -17,7 +17,7 @@ const PlanetIntermediate = () => {
     console.log('Planet ID:', id);
     const [planet, setPlanet] = useState(null);
     const [loading, setLoading] = useState(true);
-    const [selectedPlanet, setSelectedPlanet] = useState(null);
+    const [selectedPlanet, setSelectedPlanet] = useState({});
 
     useEffect(() => {
       const fetchPlanet = async () => {
@@ -54,7 +54,8 @@ const PlanetIntermediate = () => {
     }
 
     const handleNextClick = () => {
-        navigate(`/planet/${id}`);
+        // navigate(`/planet/${id}`);
+        navigate(`/exoplanets`);
     }
 
     const handleKnowMoreClick = ()=>{
