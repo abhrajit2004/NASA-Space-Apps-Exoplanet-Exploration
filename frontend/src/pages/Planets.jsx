@@ -112,7 +112,7 @@ const Planets = () => {
             <div className="flex flex-wrap justify-center mt-4">
                 
                 {planets.map((planet, index) => (
-                    <Link to={`/planet/${planet.title}`} key={index} className="bg-opacity-20 rounded-lg m-2 p-8 text-center shadow-lg hover:bg-slate-800/80 transition-all duration-150 hover:scale-105 active:scale-95">
+                    <Link to={`/planet/${planet.title}`} key={index} className="bg-slate-600 bg-opacity-20 rounded-lg m-2 p-8 text-center shadow-lg hover:bg-slate-800/80 transition-all duration-150 hover:scale-105 active:scale-95">
                         <div className="h-36 bg-white bg-opacity-20 rounded-lg mb-2">
                             {planet.thumbnailImg?.url ? (
                                 <img src={planet.thumbnailImg.url} alt={planet.title} className="h-full w-full object-cover rounded-lg" />

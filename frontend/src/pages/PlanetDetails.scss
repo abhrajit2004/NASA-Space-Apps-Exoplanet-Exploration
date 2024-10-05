@@ -6,7 +6,8 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background-image: url("../../assets/astronaut.jpg");
+  // background-image: url("../../assets/astronaut.jpg");
+  background-image: url("../../public/astronaut.jpg");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -111,7 +112,7 @@
 /* Keyframes for Typewriting and Blink Effect */
 @keyframes typing {
   from { width: 0; }
-  to { width: 50%; }
+  to { width: 80%; }
 }
 
 // @keyframes blink {
