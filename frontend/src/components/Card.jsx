@@ -3,7 +3,7 @@ import PlanetButton from '../components/PlanetButton.jsx'
 import './Card.scss'
 import { useNavigate } from 'react-router-dom'
 
-const Card = ({planetName, planetInfo1, planetInfo2}) => {
+const Card = ({planetName, planetInfo}) => {
   const navigate = useNavigate();
 
   const handleKnowMoreClick = ()=>{
@@ -13,8 +13,7 @@ const Card = ({planetName, planetInfo1, planetInfo2}) => {
     <div className='card'>
       <h1>{planetName}</h1>
       <div className="info">
-        <li>{planetInfo1}</li>
-        <li>{planetInfo2}</li>
+        <li>{planetInfo}</li>
       </div>
       <PlanetButton buttonName='Know More-->'onClick={handleKnowMoreClick}/>
     </div>

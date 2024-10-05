@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar.jsx';
 import Pagination from '../components/Pagination.jsx';
@@ -71,6 +71,10 @@ const Planets = () => {
         setCurrentPage(1); // Reset to first page when search query changes
         fetchPlanets();
     };
+    const handlePlanetClick = (planet) => {
+        localStorage.setItem('selectedPlanet', JSON.stringify(planet));
+    };
+
 
     return (<>
         <div className=" text-white min-h-screen pb-5">
@@ -79,7 +83,7 @@ const Planets = () => {
             </div>
             <Navbar />
             {/* Dropdown to change items per page */}
-            <div className="flex flex-col gap-2 items-center justify-center my-4 font-semibold">
+            <div className="flex flex-col sm:flex-row gap-2 items-center justify-center my-4 font-semibold">
                 <div className='flex flex-col sm:flex-row'>
                     <label className="mr-2 text-lg">Showing</label>
                     <select value={itemsPerPage} onChange={handleItemsPerPageChange} className="border rounded px-2 py-1 bg-slate-800">
@@ -112,7 +116,9 @@ const Planets = () => {
             <div className="flex flex-wrap justify-center mt-4">
                 
                 {planets.map((planet, index) => (
-                    <Link to={`/planetintermediate/${planet.title}`} key={index} className="bg-slate-600 bg-opacity-20 rounded-lg m-2 p-8 text-center shadow-lg hover:bg-slate-800/80 transition-all duration-150 hover:scale-105 active:scale-95">
+                    <Link to={`/planetintermediate/${planet.title}`} key={index}
+                    onClick={() => handlePlanetClick(planet)}
+                    className="bg-slate-600 bg-opacity-20 rounded-lg m-2 p-8 text-center shadow-lg hover:bg-slate-800/80 transition-all duration-150 hover:scale-105 active:scale-95">
                         <div className="h-36 bg-white bg-opacity-20 rounded-lg mb-2">
                             {planet.thumbnailImg?.url ? (
                                 <img src={planet.thumbnailImg.url} alt={planet.title} className="h-full w-full object-cover rounded-lg" />
