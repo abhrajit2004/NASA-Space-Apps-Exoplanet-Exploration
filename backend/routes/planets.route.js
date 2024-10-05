@@ -3,8 +3,8 @@ import { getPlanets, getPlanetById, getPlanetsCount } from '../controllers/plane
 
 const router = express.Router();
 
-router.use("/get", getPlanets);
-router.use("/count", getPlanetsCount);
-router.use("/:id", getPlanetById);
+router.get("/get", getPlanets);
+router.get("/count", getPlanetsCount);
+router.get("/:id", getPlanetById);
 
 export default router;
