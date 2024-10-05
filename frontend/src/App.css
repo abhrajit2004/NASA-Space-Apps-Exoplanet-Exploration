@@ -17,3 +17,13 @@
     font-family: Averia Gruesa Libre, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
     'Liberation Sans', sans-serif;
 }
+
+.nav-link {
+    transition: all 0.1s ease-in-out;
+  }
+  
+  .nav-link:hover {
+    transform: scale(1.05);
+  }
+  
+  

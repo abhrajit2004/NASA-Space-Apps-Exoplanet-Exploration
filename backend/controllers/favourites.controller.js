@@ -18,7 +18,12 @@ export async function getUserFavourites(req, res) {
 export async function addFavourite(req, res) {
   try {
       const userId = req.user.id;
+      if (!userId) {
+          return res.status(401).json({ success: false, message: "User not logged in" });
+      }
+      
       const { planetName } = req.body;
+      console.log("planetName: ", planetName);
 
       const user = await User.findById(userId);
       if (!user) {
@@ -28,6 +33,7 @@ export async function addFavourite(req, res) {
       if (!user.favorites.includes(planetName)) {
           user.favorites.push(planetName);
           await user.save();
+          console.log("user.favorites: ", user.favorites);
           return res.status(200).json({ success: true, message: "Added to favorites" });
       } else {
           return res.status(400).json({ success: false, message: "Already in favorites" });

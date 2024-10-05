@@ -13,6 +13,7 @@ export const useStore = create((set) => ({
     try {
       const res = await axios.post(`${API_URL}/api/auth/auth`, { username });
       localStorage.setItem('eduexo-token', res.data.token);
+      console.log('res.data:', res.data);
       set({ user: res.data.user, token: res.data.token, checkingAuth: false });
     } catch (error) {
       console.error(error.response.data.message || "Error in authentication");

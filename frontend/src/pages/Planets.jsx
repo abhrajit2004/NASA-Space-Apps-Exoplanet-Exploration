@@ -3,8 +3,13 @@ import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar.jsx';
 import Pagination from '../components/Pagination.jsx';
 import axios from 'axios';
+import { FaRegHeart } from "react-icons/fa";
+import { useStore } from '../store/store.js';
+
+const API_URL = import.meta.env.VITE_BACKEND_URL;
 
 const Planets = () => {
+    const { user } = useStore();
     const [planets, setPlanets] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [itemsPerPage, setItemsPerPage] = useState(16); // Number of items from NASA API
@@ -52,6 +57,22 @@ const Planets = () => {
     const handleItemsPerPageChange = (event) => {
         setItemsPerPage((event.target.value));
         setCurrentPage(1); // Reset to first page when itemsPerPage changes
+    };
+
+    const handleAddFavourite = async (planet) => {
+        
+        try {
+            setIsLoading(true);
+            const payload = {
+                title: planet.title,
+                thumbnailImg: planet.thumbnailImg?.url,
+            }
+            const response = await axios.post(`${API_URL}/api/favourites/addFav`, payload);
+            setIsLoading(false);
+        } catch (error) {
+            setIsLoading(false);
+            console.error('Error adding favourite:', error);
+        }
     };
     
 
@@ -118,7 +139,7 @@ const Planets = () => {
                 {planets.map((planet, index) => (
                     <Link to={`/planetintermediate/${planet.title}`} key={index}
                     onClick={() => handlePlanetClick(planet)}
-                    className="bg-slate-600 bg-opacity-20 rounded-lg m-2 p-8 text-center shadow-lg hover:bg-slate-800/80 transition-all duration-150 hover:scale-105 active:scale-95">
+                    className="bg-slate-600 bg-opacity-20 rounded-lg m-2 p-8 group text-center shadow-lg hover:bg-slate-800/80 transition-all duration-150 hover:scale-105 active:scale-95">
                         <div className="h-36 bg-white bg-opacity-20 rounded-lg mb-2">
                             {planet.thumbnailImg?.url ? (
                                 <img src={planet.thumbnailImg.url} alt={planet.title} className="h-full w-full object-cover rounded-lg" />
@@ -127,10 +148,13 @@ const Planets = () => {
                             )}
                         </div>
                         <h2 className='text-3xl font-semibold'>{planet.title}</h2>
-                        
+                        <FaRegHeart className='absolute  size-10 top-2 right-2 text-gray-500 hover:text-red-500 
+                        hover:scale-110 opacity-0 
+                        transition-all duration-100 group-hover:opacity-100 ' onClick={(e) =>{e.preventDefault();
+                         handleAddFavourite(planet)}} />
                     </Link>
 
-                ))}
+                ))} 
                 
                 {planets.length === 0 && <div className="text-center text-3xl">No planets found!</div>}
             </div>}

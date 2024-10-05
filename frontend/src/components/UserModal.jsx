@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { useStore } from '../store/store.js';
 
+
 const UserModal = ({ token, checkingAuth }) => {
+  const { user } = useStore();
   const {auth, logout} = useStore();
   const [username, setUsername] = useState('');
 
