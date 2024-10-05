@@ -43,6 +43,19 @@ const PlanetDetails = () =>  {
     window.history.back();
   }
 
+  const handleTextToSpeech = () => {
+    const paragraphs = document.querySelectorAll('.description p'); // Select all p tags within the description
+    let textContent = '';
+    paragraphs.forEach((p) => {
+      textContent += p.textContent + ' '; // Accumulate the text content from each p tag
+    });
+
+    // Use SpeechSynthesis to speak the accumulated text
+    const speech = new SpeechSynthesisUtterance(textContent);
+    speech.lang = 'en-US'; // Set the language
+    window.speechSynthesis.speak(speech); // Speak the text
+  };
+
   return (
     <div className='planetDetails'>
       <div className="description">
@@ -60,6 +73,7 @@ const PlanetDetails = () =>  {
 
       </div>
       <PlanetButton buttonName="Back" onClick={handleBack} />
+      <PlanetButton buttonName="Read Aloud" onClick={handleTextToSpeech} />
     </div>
   )
 }
