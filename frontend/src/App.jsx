@@ -21,6 +21,7 @@ function App() {
         <Route path="/planet/:id" element={<Planet />} />
         <Route path="/exoplanets" element={<Planets />} />
         <Route path='/planetintermediate/:id' element={<PlanetIntermediate/>}/>
+        {/* hello */}
         <Route path="/quiz" element={<QuizSelection />} />
         <Route path="/quiz/:planetName" element={<Quiz />} />
         <Route path='/planetDetails/:id' element={<PlanetDetails/>  }/>
