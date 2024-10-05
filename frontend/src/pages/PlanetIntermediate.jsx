@@ -77,15 +77,7 @@ const PlanetIntermediate = () => {
                         <h1>{planet.pl_name}</h1>
                         <div className="info">
                             <li>Host Star: {planet.hostname}</li>
-                            <li>Distance from Earth [in Parsecs]: {planet.sy_dist || <span>Unknown</span> }</li>
-                            <li>Discovery Date: {planet.disc_year || <span>Unknown</span> }</li>
-                            <li>Orbital Period [in Days]: {planet.pl_orbper || <span>Unknown</span> }</li>
-                            <li>Planet Mass: {planet.pl_bmasse || <span>Unknown</span> } times Earth's or  {planet.pl_bmassj} times Jupiter's</li>
-                            <li>Planet Density [in g/cm<sup>3</sup>]: {planet.pl_dens || <span>Unknown</span> }</li>
-                            <li>Planet Radius: {planet.pl_radj || <span>Unknown</span> }</li>
-                            <li>Stellar Mass: {planet.st_mass || <span>Unknown</span> }</li>
-                            <li>Age of Host Star: {planet.st_age || <span>Unknown</span> } billion years</li>
-
+                            
                         </div>
                         <PlanetButton buttonName='Know More-->'onClick={handleKnowMoreClick}/>
                     </div>
