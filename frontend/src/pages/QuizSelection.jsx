@@ -11,13 +11,22 @@ const QuizSelection = () => {
     };
 
     return (
-        <div className='bg-black min-h-screen flex flex-col items-center justify-center text-white'>
+        <>
+         <div className="video-wrapper absolute">
+        <video
+          src="/quizbg.mp4"
+          autoPlay
+          muted
+          loop
+        ></video>
+        </div>
+        <div className='flex flex-col items-center justify-center text-white bg-slate-900 my-36 w-[30vw] p-10 mx-auto border border-white rounded-lg'>
             <Link to="/home" className='p-10'>
-                <button button className='bg-slate-600 hover:bg-slate-700 text-white text-2xl font-bold py-4 px-6 rounded'>
+                <button className='bg-slate-600 hover:bg-slate-700 text-white text-2xl font-bold py-4 px-6 rounded'>
                     Go to Home
                 </button>
             </Link>
-            <h1 className='text-3xl mb-6'>Select a Planet for the Quiz</h1>
+            <h1 className='text-3xl mb-6'>Select a Planet for the Quiz</h1> 
             <form onSubmit={handleSubmit} className='w-full max-w-md'>
                 <input
                     type="text"
@@ -34,6 +43,7 @@ const QuizSelection = () => {
                 </button>
             </form>
         </div>
+        </>
     );
 };
 
