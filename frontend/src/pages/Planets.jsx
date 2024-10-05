@@ -112,7 +112,7 @@ const Planets = () => {
             <div className="flex flex-wrap justify-center mt-4">
                 
                 {planets.map((planet, index) => (
-                    <Link to={`/planet/${planet.title}`} key={index} className="bg-slate-600 bg-opacity-20 rounded-lg m-2 p-8 text-center shadow-lg hover:bg-slate-800/80 transition-all duration-150 hover:scale-105 active:scale-95">
+                    <Link to={`/planet/${planet.title}`} key={index} className="bg-opacity-20 rounded-lg m-2 p-8 text-center shadow-lg hover:bg-slate-800/80 transition-all duration-150 hover:scale-105 active:scale-95">
                         <div className="h-36 bg-white bg-opacity-20 rounded-lg mb-2">
                             {planet.thumbnailImg?.url ? (
                                 <img src={planet.thumbnailImg.url} alt={planet.title} className="h-full w-full object-cover rounded-lg" />
@@ -120,10 +120,7 @@ const Planets = () => {
                                 <div className="h-full w-full flex items-center justify-center text-gray-500">No Image</div>
                             )}
                         </div>
-                        <h2 className='text-lg font-semibold'>{planet.title}</h2>
-                        <p className="text-base mt-2">Planet Mass: {planet.customFields.planet_mass?.value || 'Unknown Mass'}</p>
-                        <p className="text-base mt-2">Discovery Date: {planet.customFields.discovery_date?.value || 'Unknown Discovery Date'}</p>
-                        <p className="text-base mt-2">Parsecs from Earth: {planet.customFields.st_dist?.value || 'Unknown Distance from Earth'}</p>
+                        <h2 className='text-3xl font-semibold'>{planet.title}</h2>
                         
                     </Link>
 
