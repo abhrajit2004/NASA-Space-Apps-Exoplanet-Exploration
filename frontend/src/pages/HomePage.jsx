@@ -18,7 +18,7 @@ const HomePage = () => {
         <video  src="/homebgvideo.mp4" autoPlay muted loop onLoad={()=>{setLoadingVid(false)}}></video>
       </div>
         <h1 className="title text-4xl  text-center font-krona mt-4">EduExo - Learn Your Exoplanets</h1>
-       <div className="desc p-4 text-xl font-averia">
+       <div className="desc p-4 mx-20 text-xl font-averia">
         Embark on a thrilling journey to revolutionize exoplanet education! The discovery of exoplanets has redefined our understanding of planetary systems, expanding what we know about our place in the universe. From scorching gas giants to potentially habitable rocky worlds, these distant worlds offer a glimpse into the remarkable diversity of planetary configurations. Traditional educational materials about this topic may not be accessible to everyone, particularly those from underserved communities or with limited access to resources. Your challenge is to develop engaging and accessible learning materials that leverage creativity to enlighten students about the wonders of exoplanets.
        </div>
 
