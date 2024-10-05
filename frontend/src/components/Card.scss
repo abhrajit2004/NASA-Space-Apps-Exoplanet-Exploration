@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+.card {
+  background: rgba(255, 255, 255, 0.1); // Transparent background for glass effect
+  border-radius: 20px; // Rounded corners for a smooth look
+  padding: 50px 30px; // More padding for better spacing
+  width: 400px; // Increased width for more space
+  height: auto; // Height adjusted based on content
+  backdrop-filter: blur(15px); // Frosted glass blur effect
+  border: 1px solid rgba(255, 255, 255, 0.2); // Border to give a defined edge
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 200, 255, 0.4); // Deep shadow and blue glow for a space vibe
+  color: #ffffff; // White text color for contrast against black background
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center; // Centers content horizontally
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-10px); // Lift card slightly on hover
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(0, 200, 255, 0.6); // Enhance shadow and glow on hover
+  }
+
+  h1 {
+    font-size: 3.5rem; // Increased font size for emphasis
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-shadow: 0 0 15px rgba(0, 200, 255, 0.8), 0 0 10px rgba(255, 255, 255, 0.5); // Enhanced text shadow for a more advanced glowing effect
+    position: relative;
+    font-family: "Orbitron", sans-serif;
+    overflow: hidden;
+    border-right: .15em solid  rgba(0, 200, 255, 0.8);
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: 0.15rem;
+    animation: 
+    typing 3.5s steps(40, end),
+    blink-caret .75s step-end infinite;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 60%;
+      height: 2px;
+      background: #ffffff; // White line below heading
+      margin: 10px auto 0; // Margin for spacing
+    }
+  }
+
+  .info {
+    list-style: none;
+    padding: 0;
+    margin: 30px 0 20px;
+    font-size: 22px; // Increased font size for better readability
+    text-shadow: 0 0 10px rgba(0, 200, 255, 0.5); // Subtle glow to match the theme
+    animation: typewriter 4s steps(40) 1 normal both; // Typewriter effect for the info
+
+    li {
+      margin: 15px 0;
+      opacity: 0;
+      animation: fadeIn 0.5s ease-in-out forwards;
+      animation-delay: calc(0.5s * var(--index)); // Delay for each list item to create typing effect
+      font-family: "Space Mono", monospace;
+      font-size: 1.5rem;
+    }
+  }
+
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: rgb(45, 73, 94); }
+  }
+  
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+
+  @keyframes typewriter {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  // .button-container {
+  //   margin-top: 30px;
+
+  //   button {
+  //     background: rgba(255, 255, 255, 0.2);
+  //     border: 1px solid rgba(255, 255, 255, 0.3);
+  //     color: #ffffff;
+  //     padding: 12px 30px;
+  //     border-radius: 50px;
+  //     cursor: pointer;
+  //     font-size: 18px;
+  //     text-shadow: 0 0 5px rgba(255, 255, 255, 0.6);
+  //     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4), 0 0 10px rgba(0, 200, 255, 0.3);
+  //     transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+
+  //     &:hover {
+  //       background: rgba(0, 200, 255, 0.3);
+  //       box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6), 0 0 15px rgba(0, 255, 255, 0.6);
+  //       transform: translateY(-5px);
+  //     }
+  //   }
+  // }
+}
