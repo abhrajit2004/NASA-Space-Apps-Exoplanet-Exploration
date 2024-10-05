@@ -47,14 +47,14 @@ const Planet = () => {
           <div className="flex flex-col gap-2 md:w-1/2 p-5">
               <h1 className="text-4xl font-bold mb-4">{planet.pl_name}</h1>
               <p className="">Host Star: {planet.hostname}</p> 
-              <p className="">Distance from Earth [in Parsecs]:{planet.sy_dist} </p>
-              <p className="">Discovery Date: {planet.disc_year}</p>
-              <p className="">Orbital Period [in Days]: {planet.pl_orbper}</p>
-              <p className="">Planet Mass: {planet.pl_bmasse} times Earth's or  {planet.pl_bmassj} times Jupiter's</p>
-              <p className="">Planet Density [in g/cm<sup>3</sup>]: {planet.pl_dens}</p>
-              <p className="">Planet Radius: {planet.pl_radj}</p>
-              <p className="">Stellar Mass: {planet.st_mass}</p>
-              <p className=''>Age of Host Star: {planet.st_age} billion years</p>
+              <p className="">Distance from Earth [in Parsecs]: {planet.sy_dist || <span>Unknown</span> } </p>
+              <p className="">Discovery Date: {planet.disc_year || <span>Unknown</span> }</p>
+              <p className="">Orbital Period [in Days]: {planet.pl_orbper || <span>Unknown</span> }</p>
+              <p className="">Planet Mass: {planet.pl_bmasse || <span>Unknown</span> } times Earth's or  {planet.pl_bmassj} times Jupiter's</p>
+              <p className="">Planet Density [in g/cm<sup>3</sup>]: {planet.pl_dens || <span>Unknown</span> }</p>
+              <p className="">Planet Radius: {planet.pl_radj || <span>Unknown</span> }</p>
+              <p className="">Stellar Mass: {planet.st_mass || <span>Unknown</span> }</p>
+              <p className=''>Age of Host Star: {planet.st_age || <span>Unknown</span> } billion years</p>
               {/* <a href={`/`} target="_blank" className="mt-4 inline-block text-white px-4 py-2 rounded">Know More</a> */}
           </div>
           <div className="md:w-1/2 p-5">
