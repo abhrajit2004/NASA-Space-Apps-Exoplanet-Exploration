@@ -23,7 +23,7 @@ const Navbar = () => {
     <>
       <nav>
           <div className='navbar-items font-jockey flex flex-row gap-16 justify-end px-4 py-4 text-2xl'>
-          <div className="hidden sm:flex flex-row gap-16 justify-end"> 
+          <div className="hidden sm:flex flex-row gap-16 mr-10 justify-end"> 
 
             <Link className="" to={"/home"}>HOME</Link>
             <Link className="" to={"/exoplanets"}>EXOPLANETS</Link>
