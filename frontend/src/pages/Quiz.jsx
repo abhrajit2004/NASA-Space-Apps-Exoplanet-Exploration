@@ -47,11 +47,11 @@ const Quiz = () => {
                     
                     if (hash === decryptedData.hash) {
                         setQuizData(dataToCheck);
-                        setIsLoading(false);
                     } else {
                         console.error('Data integrity check failed');
                     }
                 }
+                setIsLoading(false);
             } catch (error) {
                 console.error('Error fetching quiz data:', error);
             }
