@@ -147,10 +147,11 @@ const Favourites = () => {
                             )}
                         </div>
                         <h2 className='text-3xl font-semibold'>{planet.title}</h2>
-                        <FaTrashAlt className='absolute  size-10 top-2 right-2 text-gray-500 hover:text-red-500 
+                        <FaTrashAlt id="delete" className='absolute  size-10 top-2 right-2 text-gray-500 hover:text-red-500 
                         hover:scale-110 opacity-0 
                         transition-all duration-100 group-hover:opacity-100 ' onClick={(e) =>{e.preventDefault();
                         handleDeleteFavorite(planet)}} />
+                        <Tooltip anchorSelect="#delete" place="top" content='Delete from Favourites'/>
                     </Link>
 
                 ))} 

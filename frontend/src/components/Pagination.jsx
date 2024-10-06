@@ -1,4 +1,5 @@
 import './Pagination.scss';
+import { Tooltip } from 'react-tooltip';
 
 const Pagination = ({ currentPage, totalPages, isMobile, handlePageChange, isLoading, searchQuery }) => {
     const renderPageNumbers = () => {
@@ -20,7 +21,10 @@ const Pagination = ({ currentPage, totalPages, isMobile, handlePageChange, isLoa
         if (isMobile) {
             if (currentPage > 1) {
                 pageNumbers.push(
-                    <button key="first" aria-label='goto-first-page' onClick={() => handlePageChange(1)} className="first-page mx-1 px-2 py-1 border rounded">«</button>
+                    <>
+                    <button key="first" aria-label='goto-first-page'  id="first-page" onClick={() => handlePageChange(1)} className="first-page mx-1 px-2 py-1 border rounded">«</button>
+                    <Tooltip anchorSelect="#first-page" place="bottom" content='Go to First Page'/>
+                    </>
                 );
             }
 
@@ -37,14 +41,21 @@ const Pagination = ({ currentPage, totalPages, isMobile, handlePageChange, isLoa
 
             if (currentPage < totalPages) {
                 pageNumbers.push(
-                    <button key="last" aria-label='goto-last-page' onClick={() => handlePageChange(totalPages)} className="last-page mx-1 px-2 py-1 border rounded">»</button>
+                    <>
+                    <button key="last" aria-label='goto-last-page'  id="last-page" onClick={() => handlePageChange(totalPages)} className="last-page mx-1 px-2 py-1 border rounded">»
+                    </button>
+                    <Tooltip anchorSelect="#last-page" place="bottom" content='Go to Last Page'/>
+                    </>
                 );
             }
         } else {
             // Show first page button
             if (currentPage > 1) {
                 pageNumbers.push(
-                    <button key="first" aria-label='goto-first-page' onClick={() => handlePageChange(1)} className="first-page mx-1 px-3 py-1 border rounded">«</button>
+                    <>
+                    <button key="first" aria-label='goto-first-page'  id="first-page" onClick={() => handlePageChange(1)} className="first-page mx-1 px-2 py-1 border rounded">«</button>
+                    <Tooltip anchorSelect="#first-page" place="bottom" content='Go to First Page'/>
+                    </>
                 );
             }
             
@@ -96,7 +107,11 @@ const Pagination = ({ currentPage, totalPages, isMobile, handlePageChange, isLoa
             // Show last page button
             if (currentPage < totalPages) {
                 pageNumbers.push(
-                    <button key="last" aria-label='goto-last-page' onClick={() => handlePageChange(totalPages)} className="last-page mx-1 px-3 py-1 border rounded">»</button>
+                    <>
+                    <button key="last" aria-label='goto-last-page'  id="last-page" onClick={() => handlePageChange(totalPages)} className="last-page mx-1 px-2 py-1 border rounded">»
+                    </button>
+                    <Tooltip anchorSelect="#last-page" place="bottom" content='Go to Last Page'/>
+                    </>
                 );
             }
         }

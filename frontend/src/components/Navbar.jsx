@@ -6,6 +6,7 @@ import './Navbar.scss';
 // import { useStore } from '../store/store.js';
 // import UserModal from './UserModal.jsx';
 import { TiThMenu } from "react-icons/ti";
+import { Tooltip } from 'react-tooltip';
 
 
 const Navbar = () => {

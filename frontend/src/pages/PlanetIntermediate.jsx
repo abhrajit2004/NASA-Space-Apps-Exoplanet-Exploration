@@ -55,7 +55,7 @@ const PlanetIntermediate = () => {
 
     const handleNextClick = () => {
         // navigate(`/planet/${id}`);
-        navigate(`/exoplanets`);
+        // navigate(`/exoplanets`);
     }
 
     const handleKnowMoreClick = ()=>{
@@ -84,7 +84,7 @@ const PlanetIntermediate = () => {
                 </div>
                 <div className="right">
                     <div className="planet-container">
-                        <img src={selectedPlanet.thumbnailImg.url} alt="Planet" />
+                        <img src={selectedPlanet.thumbnailImg.url || selectedPlanet.thumbnailImg} alt="Planet" />
                     </div>
                 </div>
             </div>

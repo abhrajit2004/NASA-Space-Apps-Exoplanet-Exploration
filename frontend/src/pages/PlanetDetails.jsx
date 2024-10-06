@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom'
 import './PlanetDetails.scss'
 import PlanetButton from '../components/PlanetButton.jsx'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
+import { Tooltip } from 'react-tooltip'
 
 const API_URL = import.meta.env.VITE_BACKEND_URL;
 
@@ -55,12 +57,32 @@ const PlanetDetails = () =>  {
     speech.lang = 'en-US'; // Set the language
     window.speechSynthesis.speak(speech); // Speak the text
   };
+  const renderExcerpt = (excerpt) => {
+    if (!excerpt) return null;
+
+    const parts = excerpt.split('&hellip;');
+    return (
+      <>
+        {parts[0]}
+        {parts.length > 1 && (
+          <>
+          <Link to={selectedPlanet.permalink} id="permalink" className="perma-link font-bold text-xl text-blue-500">
+            ...
+
+          </Link>
+
+          </>
+        )}
+      </> 
+    );
+  };
 
   return (
     <div className='planetDetails'>
       <div className="description">
         <h1>{selectedPlanet.title}</h1>
-        <p>{selectedPlanet.excerpt}</p>
+        <p>{renderExcerpt(selectedPlanet.excerpt)}</p>
+        <Tooltip anchorSelect='#permalink' place='bottom' content='Visit Official NASA Catalog'/>
         <p>Host Star: {planet.hostname}</p>
         <p>Distance from Earth [in Parsecs]: {planet.sy_dist || <span>Unknown</span> }</p>
         <p>Discovery Date: {planet.disc_year || <span>Unknown</span> }</p>
