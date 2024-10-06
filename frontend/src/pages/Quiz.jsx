@@ -54,6 +54,7 @@ const Quiz = () => {
                 setIsLoading(false);
             } catch (error) {
                 console.error('Error fetching quiz data:', error);
+                setIsLoading(false);
             }
         };
 
