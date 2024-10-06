@@ -162,7 +162,7 @@ const Quiz = () => {
         );
     }
 
-    if (!quizData) {
+    if (!quizData && isLoading) {
         return <div className='bg-black min-h-screen flex items-center justify-center text-white'>Loading...</div>;
     }
 
