@@ -1,10 +1,13 @@
-import React, { useState, useEffect, useContext } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar.jsx';
 import Pagination from '../components/Pagination.jsx';
 import axios from 'axios';
 import { FaRegHeart } from "react-icons/fa";
 import { useStore } from '../store/store.js';
+import { toast } from "react-toastify";
+import { Tooltip } from 'react-tooltip'
+
 
 const API_URL = import.meta.env.VITE_BACKEND_URL;
 
@@ -17,8 +20,10 @@ const Planets = () => {
     const [isMobile, setIsMobile] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
     const [searchQuery, setSearchQuery] = useState('');
-
-
+    const [favourites, setFavourites] = useState(() => {
+        const savedFavourites = localStorage.getItem('favourite-planets');
+        return savedFavourites ? JSON.parse(savedFavourites) : [];
+      });
     const fetchPlanets = async () => {
         const url = `https://smd-cms.nasa.gov/wp-json/smd/v1/content-list/?requesting_id=199043&post_types=exoplanet&categories&internal_terms&mission_status&mission_type&mission_target&mission_programs&news_tags&meta_fields=%7B%7D&exclude_child_pages=false&order=DESC&orderby=date&science_only=false&search_query=${searchQuery}&paged=${currentPage}&number_of_items=${itemsPerPage}&layout=grid&listing_page_category_id=0`;
 
@@ -59,21 +64,33 @@ const Planets = () => {
         setCurrentPage(1); // Reset to first page when itemsPerPage changes
     };
 
-    const handleAddFavourite = async (planet) => {
-        
+    const handleAddFavourite = (planet) => {
         try {
             setIsLoading(true);
             const payload = {
-                title: planet.title,
-                thumbnailImg: planet.thumbnailImg?.url,
+            title: planet.title,
+            thumbnailImg: planet.thumbnailImg?.url,
+            };
+
+            if (favourites.some((fav) => fav.title === payload.title)) {
+                setIsLoading(false);
+                toast.error('Already in favourites!');
+                console.log('Already in favourites!');
+                return;
             }
-            const response = await axios.post(`${API_URL}/api/favourites/addFav`, payload);
+            const updatedFavourites = [...favourites, payload];
+            setFavourites(updatedFavourites);
+            localStorage.setItem('favourite-planets', JSON.stringify(updatedFavourites));
             setIsLoading(false);
+            toast.success('Added to favourites!');
+
         } catch (error) {
             setIsLoading(false);
             console.error('Error adding favourite:', error);
+            toast.error('Error adding to favourites!');
         }
     };
+    
     
 
     const handlePageChange = (pageNumber) => {

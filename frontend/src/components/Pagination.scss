@@ -7,6 +7,19 @@
         &:active {
             background-color: #cacaca;  
         }
+
+    }
+    .first-page {
+        &:hover {
+            background-color: #005bb505;
+            color: #fff;
+        }
+    }
+    .last-page {
+        &:hover {
+            background-color: #005bb505;
+            color: #fff;
+        }
     }
 
     .current-page {

@@ -111,13 +111,13 @@ const Quiz = () => {
         ></video>
         </div>
             <div className='min-h-screen flex flex-col items-center justify-center text-white'>
-                <h1 className='text-4xl'>Typed Wrong?</h1>
+                <h1 className='text-4xl bg-slate-700/80 p-4'>Typed Wrong?</h1>
                 <Link to="/quiz" className='p-4 mb-10'>
                     <button className='bg-slate-600 hover:bg-slate-700 text-white text-2xl font-bold py-4 px-6 rounded'>
                         Go back to Quiz Selection Page
                     </button>
                 </Link>
-                <div className='bg-slate-900 p-10 h-56 border border-white rounded-lg'>
+                <div className='bg-slate-900 p-10 h-full border border-white rounded-lg'>
                 <h1 className='text-3xl mb-4'>Multiple planets found, please select one:</h1>
 
                 <Pagination
@@ -129,11 +129,11 @@ const Quiz = () => {
                     searchQuery={null}
                     itemsPerPage={itemsPerPage}
                 />
-                </div>
+
 
                 
                 {isLoading ? <div className='text-xl'>Loading Planet Entries...</div> :
-                   <ul className='flex flex-wrap gap-4 p-10'>
+                   <ul className='flex flex-wrap gap-4 p-4'>
                         {multiplePlanets.map((planet) => (
                             <li key={planet.id}>
                                 <button 
@@ -156,6 +156,7 @@ const Quiz = () => {
                     searchQuery={null}
                     itemsPerPage={itemsPerPage}
                 />
+                </div>
             </div>
             </>
         );
@@ -197,15 +198,23 @@ const Quiz = () => {
 
     if (currentQuestion >= questions.length) {
         return <>
-           <div className="video-wrapper">
-        <video
-          src="/quizbg.mp4"
-          autoPlay
-          muted
-          loop
-        ></video>
+        <div className="video-wrapper">
+            <video
+            src="/quizbg.mp4"
+            autoPlay
+            muted
+            loop
+            ></video>
         </div>
-        <div className='flex flex-col items-center justify-center text-white bg-slate-900 my-60 w-[30vw] h-[30vh] p-10 mx-auto border border-white rounded-lg font-krona'>Your score: {score}/{questions.length}</div>
+        <div className='flex flex-col items-center justify-center text-white bg-slate-900 my-60 w-[40vw]  p-32 mx-auto border border-white rounded-lg font-krona text-3xl'>
+            Your score: {score}/{questions.length} 
+            <Link to="/quiz" className='p-4 mt-10'>
+            <button className='bg-slate-600 hover:bg-slate-700 text-white text-2xl font-bold py-4 px-6 rounded'>
+                Go back
+            </button>
+        </Link>
+        </div>
+
         </>;
     }
 
@@ -221,8 +230,8 @@ const Quiz = () => {
           loop
         ></video>
         </div>
-        <div className='flex flex-col items-center justify-center text-white bg-slate-900 my-36 w-[30vw] p-10 mx-auto border border-white rounded-lg'>
-            <h1 className='text-4xl mb-6 font-krona typewriter-text'>{quizData.title} Quiz</h1>
+        <div className='flex flex-col items-center justify-center text-white bg-slate-900 my-36 sm:w-[30vw] w-[90vw] p-10 mx-auto border border-white rounded-lg'>
+            <h1 className='sm:text-4xl text-2xl mb-6 font-krona typewriter-text'>{quizData.title} Quiz</h1>
             <div className='w-full max-w-md '>
                 <h2 className='text-base mb-4 font-krona'>{question.questionText}</h2>
                 <div className='space-y-2'>

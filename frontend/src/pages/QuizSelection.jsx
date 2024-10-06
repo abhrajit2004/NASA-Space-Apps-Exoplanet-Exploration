@@ -13,14 +13,14 @@ const QuizSelection = () => {
     return (
         <>
          <div className="video-wrapper absolute">
-        <video
-          src="/quizbg.mp4"
-          autoPlay
-          muted
-          loop
-        ></video>
+            <video
+            src="/quizbg.mp4"
+            autoPlay
+            muted
+            loop
+            ></video>
         </div>
-        <div className='flex flex-col items-center justify-center text-white bg-slate-900 my-36 w-[30vw] p-10 mx-auto border border-white rounded-lg'>
+        <div className='flex flex-col items-center justify-center text-white bg-slate-900 my-36 sm:w-[30vw] w-[60vw] p-10 mx-auto border border-white rounded-lg'>
             <Link to="/home" className='p-10'>
                 <button className='bg-slate-600 hover:bg-slate-700 text-white text-2xl font-bold py-4 px-6 rounded'>
                     Go to Home

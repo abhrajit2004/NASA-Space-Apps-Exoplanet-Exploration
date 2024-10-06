@@ -12,12 +12,27 @@ import PlanetIntermediate from './pages/PlanetIntermediate.jsx'
 import PlanetDetails from './pages/PlanetDetails.jsx'
 import Favourites from './pages/Favourites.jsx'
 import { useStore } from './store/store.js'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 function App() {
-  const { user } = useStore()
+  
   
   return (
     <>
+    < ToastContainer 
+        position="top-right"
+        autoClose={1000}
+        hideProgressBar={true}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+        transition: Bounce
+        />
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/home" element={<HomePage />} />
