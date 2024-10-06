@@ -28,7 +28,7 @@ const Landing = () => {
   }, []);
 
   return (
-    <div className='landing-container w-full h-screen overflow-hidden flex flex-col items-center justify-center'>
+    <div className='landing-container w-full min-h-screen overflow-hidden flex flex-col items-center justify-center'>
       {/* Background Video */}
       <div className="video-wrapper">
         <video
@@ -41,12 +41,14 @@ const Landing = () => {
       </div>
 
       {/* Typewriter Text Effect */}
-      <h1 className="title text-4xl text-center font-krona typewriter-text">
+      <div className="p-10">
+      <h1 className="title text-3xl text-center font-krona typewriter-text">
         {displayText}
       </h1>
+      </div>
 
       {/* GIF Container */}
-      <div className="gif-container">
+      <div className="gif-container mb-10">
         <img src="./astronaut-tumble-astronaut.gif" alt="Description of GIF" />
       </div>
 

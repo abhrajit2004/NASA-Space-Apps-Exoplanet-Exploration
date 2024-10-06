@@ -19,7 +19,7 @@
 .typewriter-text {
     font-family: 'Krona One', sans-serif; /* Keep the same font */
     color: #fff;
-    white-space: nowrap; /* Prevent text from wrapping */
+    /* white-space: nowrap; Prevent text from wrapping */
     overflow: hidden; /* Hide overflow text */
     border-right: 4px solid rgba(255, 255, 255, 0.75); /* Create the blinking cursor */
     width: fit-content;
