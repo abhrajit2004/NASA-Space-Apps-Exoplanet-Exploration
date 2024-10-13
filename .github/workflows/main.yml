@@ -1,9 +1,12 @@
 name: Update new.json file
 
+permissions:
+  contents: write  # Grant write permissions to GitHub Actions bot
+
 on:
   schedule:
     - cron: '0 0 * * *'  # This runs the action daily (adjust as needed)
-  workflow_dispatch: 
+  workflow_dispatch:  # Allows manual triggering of the workflow
 
 jobs:
   update-json:
