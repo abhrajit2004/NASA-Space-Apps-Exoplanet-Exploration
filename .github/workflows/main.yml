@@ -3,7 +3,7 @@ name: Update new.json file
 on:
   schedule:
     - cron: '0 0 * * *'  # This runs the action daily (adjust as needed)
-  workflow_dispatch:  
+  workflow_dispatch: 
 
 jobs:
   update-json:
@@ -15,15 +15,18 @@ jobs:
 
       - name: Download new JSON file
         run: |
-          curl -o new.json "https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=select+pl_name,hostname,disc_year,pl_orbper,pl_bmassj,pl_masse,pl_radj,pl_dens,st_teff,st_rad,st_mass,st_age,sy_bmag,sy_vmag,sy_dist+from+pscomppars+where+pl_controv_flag=0&format=json"
+          curl -o backend/new.json "https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=select+pl_name,hostname,disc_year,pl_orbper,pl_bmassj,pl_masse,pl_radj,pl_dens,st_teff,st_rad,st_mass,st_age,sy_bmag,sy_vmag,sy_dist+from+pscomppars+where+pl_controv_flag=0&format=json"
+          
+      - name: Check if there are any changes
+        run: |
+          git diff --exit-code backend/new.json || echo "File changed"
 
-        
-      - name: Commit and push changes
+      - name: Commit and push changes if new.json was updated
         run: |
           git config --local user.name "GitHub Action Bot"
           git config --local user.email "action@github.com"
           git add backend/new.json
-          git commit -m "Update new.json with the latest data"
+          git commit -m "Update new.json with the latest data" || echo "No changes to commit"
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
